@@ -1,0 +1,33 @@
+package Array;
+
+import java.util.*;
+
+public class Lab7_4 {
+public static void main(String args[]) {
+	
+	List<Integer> l=new ArrayList();
+	Scanner s=new Scanner(System.in);
+	int a=s.nextInt();
+	for(int i=0;i<a;i++) {
+	int a1=s.nextInt();
+	l.add(a1);
+	}
+		/*
+		 * List<Integer>[] la=new ArrayList[10]; for(int i=0;i<a;i++) { int
+		 * a1=s.nextInt(); l.add(a1); }
+		 */
+		/*
+		 * Iterator i=l.iterator(); while(i.hasNext()) { Object o=i.next();
+		 * 
+		 * }
+		 */
+	for(int i:l) {
+		int j=i*i;
+	System.out.println("square of the no:"+j);
+	}
+	HashMap<Integer,Integer> m=new HashMap<Integer,Integer>();
+	
+	}
+	
+}
+}

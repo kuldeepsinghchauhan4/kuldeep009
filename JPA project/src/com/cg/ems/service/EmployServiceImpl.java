@@ -6,7 +6,7 @@ import com.cg.ems.dto.Employ;
 public class EmployServiceImpl implements EmployService{
 	EmployDao empDao=null;
 	public EmployServiceImpl() {
-		empDao=(EmployDao)new EmployDaoImpl();
+		empDao=new EmployDaoImpl();
 	}
 	@Override
 	public Employ addEmp(Employ emp) {

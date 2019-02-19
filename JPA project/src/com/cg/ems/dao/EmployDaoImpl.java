@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
 
 import com.cg.ems.dto.Employ;
 import com.cg.ems.util.JPAUtil;
@@ -26,26 +27,39 @@ public  EmployDaoImpl () {
 
 	@Override
 	public ArrayList<Employ> fetchAllEmp() {
-	
-		return null;
+	String selAllQry="SELECT emps FROM Employ emps";
+	TypedQuery<Employ> tq=em.createQuery(selAllQry,Employ.class);
+	ArrayList<Employ> empList=(ArrayList<Employ>) tq.getResultList();
+		return empList;
 	}
 
 	@Override
 	public Employ deleteEmpEid(int empId) {
+		Employ e1=em.find(Employ.class, empId);
+		entityTran.begin();
+		//e1.setEmpId(empId);
+		em.remove(e1);
+		entityTran.commit();
+		return e1;
 	
-		return null;
+	
 	}
 
 	@Override
 	public Employ getEmpbyId(int empId) {
-		
-		return null;
+		Employ ee=em.find(Employ.class, empId);
+		return ee;
 	}
 
 	@Override
-	public Employ updateEmp(int empId, String newname, float newSal) {
-		
-		return null;
+	public Employ updateEmp(int empId, String newName, float newSal) {
+		Employ ee=em.find(Employ.class, empId);
+		ee.setEmpName(newName);
+		ee.setEmpSal(newSal);
+		entityTran.begin();
+		em.merge(ee);
+		entityTran.commit();
+		return ee;
 	}
 	
 

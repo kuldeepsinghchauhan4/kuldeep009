@@ -11,6 +11,7 @@
 			<property name="javax.persistence.jdbc.user" value="system" />
 			<property name="javax.persistence.jdbc.password" value="Capgemini123" />
 			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver" />
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
 		</properties>
 	</persistence-unit>
 </persistence>

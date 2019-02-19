@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -11,6 +13,7 @@ import javax.persistence.Transient;
 @Table(name="emp1")
 public class Employ {
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="emp_id",length=20)
 	private int empId;
 	@Column(name="emp_name",length=30)
@@ -20,11 +23,10 @@ public class Employ {
 	//jpa will not map this property with table
 	@Transient
 	private LocalDate empDOJ;
-	
 	public Employ() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
+	
+	
 	public Employ(int empId, String empName, float empSal, LocalDate empDOJ) {
 		super();
 		this.empId = empId;
